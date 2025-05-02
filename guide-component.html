@@ -1,0 +1,2668 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>컴포넌트 가이드</title>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="/resource/favicon/favicon.ico">
+  <link rel="icon" href="/resource/favicon/favicon.ico">
+  <!-- //favicon -->
+
+  <!-- style -->
+  <link rel="stylesheet" type="text/css" href="/resource/css/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="/resource/css/datepicker/datepicker-custom.css"><!-- 날짜 선택 스타일 파일 -->
+
+  <link type="text/css" rel="stylesheet" href="/resource/css/base.css">
+  <link type="text/css" rel="stylesheet" href="/resource/css/settings.css">
+  <link type="text/css" rel="stylesheet" href="/resource/css/components.css">
+  <link type="text/css" rel="stylesheet" href="/resource/css/layout.css">
+
+
+  <style>
+    body {
+      width: 100%;
+      max-width: none !important;
+      overflow-y: hidden;
+    }
+
+    b {
+      margin-left: 10px;
+    }
+
+    h1.test-title {
+      font-size: 30px;
+      margin: 50px 50px;
+    }
+
+    h2.test-title {
+      margin: 0 0 20px;
+      font-size: 22px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #888;
+    }
+
+    h3.test-title {
+      font-size: 18px;
+      margin-bottom: 20px;
+      display: block;
+      width: 100%;
+    }
+
+    .test-section {
+      border-top: 2px solid #ddd;
+      padding: 50px;
+    }
+
+    .test-section-sub {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+
+    .test-section-sub+.test-section-sub {
+      margin-top: 20px;
+      border-top: 1px dashed #ddd;
+      padding-top: 20px;
+    }
+
+    .test-code {
+      border: 2px solid #ddd;
+      margin: 10px 0;
+      background: #101737;
+      padding: 10px;
+    }
+
+    .test-code:before {
+      content: 'ex.';
+      display: block;
+      font-size: 12px;
+    }
+
+    .test-description {
+      margin: 10px 0;
+      padding: 0 12px;
+    }
+
+    .test-links {
+      margin-left: -20px;
+    }
+
+    .test-links:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
+    .test-links a {
+      display: block;
+      margin: 20px 0 0 20px;
+      float: left;
+      padding: 5px 15px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      background: #333;
+    }
+
+    .test-links+h2.test-title {
+      margin-top: 20px;
+    }
+
+    .test-section--item {
+      display: flex;
+      flex-direction: column;
+
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .tag__item {
+      margin-top: 10px;
+    }
+
+    .section-item {
+      border: 1px dashed #d326d3;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+      margin-top: 10px;
+    }
+
+    /* color */
+    .item-sub {
+      width: 80px;
+    }
+
+    .item-name {
+      text-align: center;
+      display: block;
+    }
+
+    .block-wrap .item,
+    .block-wrap .item-feature,
+    .block-wrap .item-name {
+      width: 100%;
+      height: auto;
+      text-align: left;
+    }
+
+    .block-wrap .item-name {
+      color: #575757;
+    }
+
+    .item {
+      width: 106px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .item-feature {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 10px 5px;
+    }
+
+    /* 이윤미 추가 - 팝업 */
+    .pop__detail.new {
+      display: block !important;
+    }
+
+    /* 상태카드 */
+    .state-card {
+      width: 360px;
+    }
+  </style>
+
+  <!-- //style -->
+</head>
+
+<body>
+  <div id="wrap">
+    <h1 class="test-title">Variables</h1>
+    <div class="test-section test-section--color">
+      <h3 class="test-title">Color</h3>
+      <div class="test-section-sub flex-wrap">
+        <h4 class="item-sub">primary</h4>
+        <div class="item">
+          <p class="item-feature" style="background-color: #0A3164;"></p>
+          <span class="item-name">#0A3164</span>
+        </div>
+        <div class="item">
+          <p class="item-feature" style="background-color: #0046A3;"></p>
+          <span class="item-name">#0046A3</span>
+        </div>
+        <div class="item">
+          <p class="item-feature" style="background-color: #0C61D0;"></p>
+          <span class="item-name">#0C61D0</span>
+        </div>
+        <div class="item">
+          <p class="item-feature" style="background-color: #63CBFF;"></p>
+          <span class="item-name">#63CBFF</span>
+        </div>
+        <div class="item">
+          <p class="item-feature" style="background-color: #EBF3FE;"></p>
+          <span class="item-name">#EBF3FE</span>
+        </div>
+      </div>
+      <div class="test-section-sub flex-wrap">
+        <h4 class="item-sub">Neutral</h4>
+        <div class="item">
+          <p class="item-feature" style="background-color: #111;"></p>
+          <span class="item-name">#111</span>
+        </div>
+        <div class="item">
+          <p class="item-feature" style="background-color: #545456"></p>
+          <span class="item-name">#545456</span>
+        </div>
+        <div class="item">
+          <p class="item-feature" style="background-color: #A3A3A5"></p>
+          <span class="item-name">#A3A3A5</span>
+        </div>
+        <div class="item">
+          <p class="item-feature" style="background-color: #e2e5e9;"></p>
+          <span class="item-name">#e2e5e9</span>
+        </div>
+        <div class="item">
+          <p class="item-feature" style="background-color: #fff; border:1px solid #000"></p>
+          <span class="item-name">#fff</span>
+        </div>
+      </div>
+      <div class="test-section-sub flex-wrap">
+        <h4 class="item-sub">other</h4>
+        <div class="item">
+          <p class="item-feature" style="background-color: #EB003B;"></p>
+          <span class="item-name">#EB003B</span>
+        </div>
+        <div class="item">
+          <p class="item-feature" style="background-color: #CDEAF6;"></p>
+          <span class="item-name">#CDEAF6</span>
+        </div>
+        <div class="item">
+          <p class="item-feature" style="background-color: #DAF6B2;"></p>
+          <span class="item-name">#DAF6B2</span>
+        </div>
+        <div class="item">
+          <p class="item-feature" style="background-color: #FFD3C2;"></p>
+          <span class="item-name">$bg-red</span>
+        </div>
+        <div class="item">
+          <p class="item-feature" style="background-color: #00587C;"></p>
+          <span class="item-name">#00587C</span>
+        </div>
+        <div class="item">
+          <p class="item-feature" style="background-color: #365C00;"></p>
+          <span class="item-name">#365C00</span>
+        </div>
+        <div class="item">
+          <p class="item-feature" style="background-color: #BB3500;"></p>
+          <span class="item-name">#BB3500</span>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="test-title">Base</h1>
+    <div class="test-section test-section--typo">
+      <h3 class="test-title">Typography</h3>
+      <div class="test-section-sub">
+        <h4 class="item-sub">font_guide</h4>
+        <div class="block-wrap">
+          <div class="item">
+            <span class="item-name tit-depth__01">tit-depth__01</span>
+            <p class="item-feature tit-depth__01">Main Heading</p>
+          </div>
+          <div class="item">
+            <span class="item-name tit-depth__02">tit-depth__02</span>
+            <p class="item-feature tit-depth__02">Sub Heading</p>
+          </div>
+          <div class="item">
+            <span class="item-name semiBold-24">semiBold-24</span>
+            <p class="item-feature semiBold-24">Section Title</p>
+          </div>
+          <div class="item">
+            <span class="item-name semiBold-22">semiBold-22</span>
+            <p class="item-feature semiBold-22">Detail Title1</p>
+          </div>
+          <div class="item">
+            <span class="item-name semiBold-20">semiBold-20</span>
+            <p class="item-feature semiBold-20">Detail Title2</p>
+          </div>
+          <div class="item">
+            <span class="item-name regular-17">regular-17</span>
+            <p class="item-feature regular-17">body1</p>
+          </div>
+          <div class="item">
+            <span class="item-name regular-16">regular-16</span>
+            <p class="item-feature regular-16">body2</p>
+          </div>
+          <div class="item">
+            <span class="item-name regular-15">regular-15</span>
+            <p class="item-feature regular-15">Caption</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1 class="test-title">Layout</h1>
+    <div class="test-section test-section--typo">
+      <h3 class="test-title">header</h3>
+      <div class="test-section-sub">
+        <h4 class="item-sub">header(main)</h4>
+        <div class="block-wrap">
+          <div class="item" style="margin-bottom: 20px;">
+            <span class="item-name medium-16">.header-inner.main__header.new</span>
+            <p class="item-feature">
+
+
+            <header class="header" style="position: relative; width: 360px; border:1px solid #ddd">
+              <div class="header-inner new main__header">
+                <div class="product__top">
+                  <div class="head-logo">
+                    <a href="#none"><img src="/assets/image/logo/meatmatch01.svg" alt=""></a>
+                  </div>
+                  <div class="action-box">
+                    <a href="#none"><img src="/assets/image/ico-search.svg" alt=""></a>
+                    <a href="#none"><img src="/assets/image/ico-my-alert.svg" alt=""></a>
+                  </div>
+                </div>
+              </div>
+            </header>
+
+
+
+
+            </p>
+          </div>
+
+        </div>
+      </div>
+      <h3 class="test-title">footer</h3>
+      <div class="test-section-sub">
+        <h4 class="item-sub">fixed-menu</h4>
+        <div class="block-wrap">
+          <div class="item">
+            <p class="item-feature">
+            <div class="fixed-menu new" style="position: relative !important; width: 360px !important;">
+              <div class="menu-inner">
+                <ul>
+                  <li class="is-active">
+                    <a href="my_book.html">
+                      <img src="/assets/image/menu-sell.svg" alt="">
+                      <span>사고팔기</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="my_type.html">
+                      <img src="/assets/image/menu-comm.svg" alt="">
+                      <span>커뮤니티</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="book_search.html">
+                      <img src="/assets/image/menu-msg.svg" alt="">
+                      <span>메시지</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#none">
+                      <img src="/assets/image/menu-data.svg" alt="">
+                      <span>데이터</span>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="my_info.html">
+                      <img src="/assets/image/menu-mypage.svg" alt="">
+                      <span>내정보</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            </p>
+          </div>
+        </div>
+        <h4 class="item-sub">footer</h4>
+        <div class="block-wrap">
+          <div class="item">
+            <div class="item-feature">
+              <footer class="footer" style="width: 360px !important;">
+                <h2>(주)미트박스글로벌</h2>
+                <dl>
+                  <dt>대표이사</dt>
+                  <dd>김기봉</dd>
+                </dl>
+                <dl>
+                  <dt>사업자 등록번호</dt>
+                  <dd>129-86-87864</dd>
+                </dl>
+                <dl>
+                  <dt>주소</dt>
+                  <dd>서울특별시 강남구 테헤란로 34길 22</dd>
+                </dl>
+                <ul>
+                  <li><a href="#none">이용약관</a></li>
+                  <li><a href="#none"><strong>개인정보처리방침</strong></a></li>
+                </ul>
+              </footer>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <h3 class="test-title">navbar</h3>
+      <div class="test-section-sub">
+        <h4 class="item-sub">tab__menu.new</h4>
+        <div class="block-wrap">
+          <div class="item">
+            <p class="item-feature">
+            <div class="tab__menu new" style="width:360px; border: 1px solid #ddd">
+              <a href="/trading/get-trading-list/TTC01/latest" class="">품목표</a>
+              <a aria-current="page" href="/">사고팔기</a>
+              <a href="/trading/get-trading-list/TTC05/latest" class="">판매 입찰</a>
+              <a href="/trading/get-trading-list/TTC05/latest" class="is-active">대출</a>
+            </div>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="test-section-sub">
+        <h4 class="item-sub">sorting-round</h4>
+        <div class="block-wrap">
+          <div class="item">
+            <p class="item-feature">
+            <div class="sorting-round tab-function mb-0 no-padding-right">
+              <ul>
+                <li class="active"><button type="button">전체(1)</button></li>
+                <li><button type="button">접수(1)</button></li>
+                <li><button type="button">심사(0)</button></li>
+                <li><button type="button">신청(0)</button></li>
+                <li><button type="button">검수/승인(0)</button></li>
+                <li><button type="button">취소/거절(0)</button></li>
+              </ul>
+            </div>
+            </p>
+          </div>
+        </div>
+      </div>
+      <h3 class="test-title" style="margin-top: 30px;">layout</h3>
+      <div class="test-section-sub flex-wrap d-flex">
+        <div class="section-item"
+          style="width:360px; border:1px solid #b4b4b4; border-radius: 0; position: relative; padding:0;">
+          <p class="section-item-tit">type1 : 푸터가 있을 경우. 컨텐츠 영역이 가리면 스크롤 생성</p>
+          <header class="header" style="position: absolute;">
+            <div class="header-inner new title" style="padding-top:0">
+              <div class="product__top">
+                <h2 class="bold-18">축산 담보대출 신청</h2>
+              </div>
+            </div>
+          </header>
+          <div class="content new" style="min-height: 500px; height: 584px;">
+            <div class="main scroll-zone">
+              <!-- 여기에 들어오는 콘텐츠가 300px을 넘으면 스크롤 생김 -->
+              <p style="margin-top: 10px;">콘텐츠 1</p>
+              <p style="margin-top: 10px;">콘텐츠 2</p>
+              <p style="margin-top: 10px;">콘텐츠 3</p>
+              <p style="margin-top: 10px;">콘텐츠 4</p>
+              <!-- 더 많은 콘텐츠를 넣으면 스크롤 가능 -->
+            </div>
+            <div class="fixed-button" style="color:#000; text-align: center; display: block; background-color: #888;">
+              <p>고정되는 버튼 영역</p>
+            </div>
+          </div>
+
+
+          <footer style="background-color: #333; color: white; padding: 20px; text-align: center;">
+            <p>FIXED-MENU</p>
+          </footer>
+        </div>
+
+        <div class="section-item"
+          style="width:360px; border:1px solid #b4b4b4; border-radius: 0; position: relative; padding:0;">
+          <p class="section-item-tit">type1 : 푸터가 있을 경우. 컨텐츠 영역이 가리면 스크롤 생성</p>
+          <header class="header" style="position: absolute;">
+            <div class="header-inner new title" style="padding-top:0">
+              <div class="product__top">
+                <h2 class="bold-18">축산 담보대출 신청</h2>
+              </div>
+            </div>
+          </header>
+          <div class="content new no-footer" style="min-height: 500px; height: 584px;">
+            <div class="main scroll-zone">
+              <!-- 여기에 들어오는 콘텐츠가 300px을 넘으면 스크롤 생김 -->
+              <p style="margin-top: 10px;">콘텐츠 1</p>
+              <p style="margin-top: 10px;">콘텐츠 2</p>
+              <p style="margin-top: 10px;">콘텐츠 3</p>
+              <p style="margin-top: 10px;">콘텐츠 4</p>
+              <!-- 더 많은 콘텐츠를 넣으면 스크롤 가능 -->
+            </div>
+            <div class="fixed-button" style="color:#000; text-align: center; display: block; background-color: #888;">
+              <p>고정되는 버튼 영역</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-item"
+          style="width:360px; border:1px solid #b4b4b4; border-radius: 0; position: relative; padding:0;">
+          <p class="section-item-tit" style="position: absolute;
+						top: -42px;">컨텐츠 전체 100, 개별적으로 패딩을 줘야 하는 경우</p>
+          <header class="header" style="position: absolute;">
+            <div class="header-inner new title" style="padding-top:0">
+              <div class="product__top">
+                <h2 class="bold-18">축산 담보대출 신청</h2>
+              </div>
+            </div>
+          </header>
+          <div class="content new" style="min-height: 500px; height: auto;">
+            <div class="main scroll-zone wide">
+              <!-- 여기에 들어오는 콘텐츠가 300px을 넘으면 스크롤 생김 -->
+              <p style="margin-top: 10px;">콘텐츠 1</p>
+              <p style="margin-top: 10px;">콘텐츠 2</p>
+              <p style="margin-top: 10px;">콘텐츠 3</p>
+              <p style="margin-top: 10px; margin-bottom: 20px;">콘텐츠 4</p>
+              <hr class="section-line">
+              </hr>
+              <p style="margin-top: 20px;">콘텐츠 1</p>
+              <p style="margin-top: 10px;">콘텐츠 2</p>
+              <p style="margin-top: 10px;">콘텐츠 3</p>
+              <p style="margin-top: 10px;">콘텐츠 4</p>
+              <!-- 더 많은 콘텐츠를 넣으면 스크롤 가능 -->
+            </div>
+            <div class="fixed-button" style="color:#000; text-align: center; display: block; background-color: #888;">
+              <p>고정되는 버튼 영역</p>
+            </div>
+          </div>
+          <footer style="background-color: #333; color: white; padding: 20px; text-align: center;">
+            <p>FIXED-MENU</p>
+          </footer>
+        </div>
+
+        <div class="section-item"
+          style="width:360px; border:1px solid #b4b4b4; border-radius: 0; position: relative; padding:0;">
+          <p class="section-item-tit" style="position: absolute;
+						top: -42px;">fixed-menu가 하단에 있는 경우</p>
+          <header class="header" style="position: absolute;">
+            <div class="header-inner new title" style="padding-top:0">
+              <div class="product__top">
+                <h2 class="bold-18">축산 담보대출 신청</h2>
+              </div>
+            </div>
+          </header>
+          <div class="content new" style="min-height: 500px; height: auto; ">
+            <div class="main scroll-zone fix-menu">
+              <!-- 여기에 들어오는 콘텐츠가 300px을 넘으면 스크롤 생김 -->
+              <p style="margin-top: 10px;">콘텐츠 1</p>
+              <p style="margin-top: 10px;">콘텐츠 2</p>
+              <p style="margin-top: 10px;">콘텐츠 3</p>
+              <p style="margin-top: 10px; margin-bottom: 20px;">콘텐츠 4</p>
+              <hr class="section-line">
+              </hr>
+              <p style="margin-top: 20px;">콘텐츠 1</p>
+              <p style="margin-top: 10px;">콘텐츠 2</p>
+              <p style="margin-top: 10px;">콘텐츠 3</p>
+              <p style="margin-top: 10px;">콘텐츠 4</p>
+              <!-- 더 많은 콘텐츠를 넣으면 스크롤 가능 -->
+            </div>
+
+          </div>
+          <footer style="background-color: #333; color: white; padding: 20px; text-align: center;">
+            <p>FIXED-MENU</p>
+          </footer>
+        </div>
+
+        <div class="section-item"
+          style=" width:360px; border:1px solid #b4b4b4; border-radius: 0; position: relative !important; padding:0; overflow: hidden;">
+          <p class="section-item-tit">약관 팝업</p>
+          <header class="header" style="position: absolute;">
+            <div class="header-inner new title" style="padding-top:0">
+              <div class="product__top">
+                <h2 class="bold-18">축산 담보대출 신청</h2>
+              </div>
+            </div>
+          </header>
+          <div class="content new" style="min-height: 584px; height: 584px;">
+            <div class="main scroll-zone fix-menu"
+              style="display: flex; flex-direction: column; justify-content: end; margin-bottom: 0; padding-bottom: 0;">
+              <div class="agree-box">
+                <div class="agree-all">
+                  <div class="checkbox horizontal">
+                    <input type="checkbox" class="parent" id="check_all"><label for="check_all">전체
+                      동의</label>
+                  </div>
+                </div>
+                <ul class="agree-detail">
+                  <li>
+                    <div class="checkbox horizontal">
+                      <input type="checkbox" class="child" id="check_1"><label for="check_1">(필수)신용정보 조회/수집 및 제 3자 제공
+                        동의</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="checkbox horizontal">
+                      <input type="checkbox" class="child" id="check_2"><label for="check_2">(필수)서비스 이용약관</label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="checkbox horizontal">
+                      <input type="checkbox" class="child" id="check_3"><label for="check_3">(필수)담보물 강제처분 동의</label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="dimed" style="position: absolute;"></div>
+          <div class="modal-toast agree" style="position: absolute; max-width: 360px;">
+            <div class="modal-content" style="height: 542px">
+              <div class="term">
+                <div class="term-tit">첫 번째 내용 타이틀</div>
+                <div class="term-cont">
+                  <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                  </p>
+                  <p>엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째
+                    내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용엔터 이후 두
+                    번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 </p>
+                </div>
+              </div>
+              <div class="term">
+                <div class="term-tit">두 번째 내용 타이틀</div>
+                <div class="term-cont">
+                  <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                  </p>
+                  <p>엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째
+                    내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용엔터 이후 두
+                    번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 </p>
+                </div>
+              </div>
+              <div class="term">
+                <div class="term-tit">세 번째 내용 타이틀</div>
+                <div class="term-cont">
+                  <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                  </p>
+                  <p>엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째
+                    내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용엔터 이후 두
+                    번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 </p>
+                </div>
+              </div>
+              <div class="term">
+                <div class="term-tit">네 번째 내용 타이틀</div>
+                <div class="term-cont">
+                  <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                  </p>
+                  <p>엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째
+                    내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용엔터 이후 두
+                    번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 </p>
+                </div>
+              </div>
+              <div class="term">
+                <div class="term-tit">다섯 번째 내용 타이틀</div>
+                <div class="term-cont">
+                  <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                  </p>
+                  <p>엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째
+                    내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용엔터 이후 두
+                    번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 </p>
+                </div>
+              </div>
+              <div class="term">
+                <div class="term-tit">여섯 번째 내용 타이틀</div>
+                <div class="term-cont">
+                  <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                  </p>
+                  <p>엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째
+                    내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용엔터 이후 두
+                    번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 </p>
+                </div>
+              </div>
+              <div class="modal-toast-btn">
+                <button type="button" class="btn btn-full js-modal-close">확인</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-item"
+          style=" width:360px; border:1px solid #b4b4b4; border-radius: 0; position: relative !important; padding:0; overflow: hidden;">
+          <p class="section-item-tit">약관 팝업</p>
+          <header class="header" style="position: absolute;">
+            <div class="header-inner new title" style="padding-top:0">
+              <div class="product__top">
+                <h2 class="bold-18">축산 담보대출 신청</h2>
+              </div>
+            </div>
+          </header>
+          <div class="content new" style="min-height: 584px; height: 584px;">
+            <div class="main scroll-zone fix-menu"
+              style="display: flex; flex-direction: column; justify-content: end; margin-bottom: 0; padding-bottom: 0;">
+              <p class="notice modal"><a href="#">유의사항</a></p>
+            </div>
+          </div>
+          <div class="dimed" style="position: absolute;"></div>
+          <div class="modal-toast modal-notice" style="position: absolute; max-width: 360px;">
+            <div class="modal-content" style="height: 542px">
+              <div class="term">
+                <div class="term-tit">첫 번째 내용 타이틀</div>
+                <div class="term-cont">
+                  <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                  </p>
+                  <p>엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째
+                    내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용엔터 이후 두
+                    번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 </p>
+                </div>
+              </div>
+              <div class="term">
+                <div class="term-tit">두 번째 내용 타이틀</div>
+                <div class="term-cont">
+                  <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                  </p>
+                  <p>엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째
+                    내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용엔터 이후 두
+                    번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 </p>
+                </div>
+              </div>
+              <div class="term">
+                <div class="term-tit">세 번째 내용 타이틀</div>
+                <div class="term-cont">
+                  <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                  </p>
+                  <p>엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째
+                    내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용엔터 이후 두
+                    번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 </p>
+                </div>
+              </div>
+              <div class="term">
+                <div class="term-tit">네 번째 내용 타이틀</div>
+                <div class="term-cont">
+                  <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                  </p>
+                  <p>엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째
+                    내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용엔터 이후 두
+                    번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 </p>
+                </div>
+              </div>
+              <div class="term">
+                <div class="term-tit">다섯 번째 내용 타이틀</div>
+                <div class="term-cont">
+                  <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                  </p>
+                  <p>엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째
+                    내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용엔터 이후 두
+                    번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 </p>
+                </div>
+              </div>
+              <div class="term">
+                <div class="term-tit">여섯 번째 내용 타이틀</div>
+                <div class="term-cont">
+                  <p>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+                  </p>
+                  <p>엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째
+                    내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용엔터 이후 두
+                    번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 엔터 이후 두 번째 내용 </p>
+                </div>
+              </div>
+              <div class="modal-toast-btn">
+                <button type="button" class="btn btn-full js-modal-close">확인</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="section-item"
+          style=" width:360px; border:1px solid #b4b4b4; border-radius: 0; position: relative !important; padding:0;">
+          <p class="section-item-tit">필터 팝업</p>
+          <header class="header" style="position: absolute;">
+            <div class="header-inner new title" style="padding-top:0">
+              <div class="product__top">
+                <h2 class="bold-18">축산 담보대출 신청</h2>
+              </div>
+            </div>
+          </header>
+          <div class="content new" style="min-height: 584px; height: 584px;">
+            <div class="main scroll-zone">
+              <div class="filter">
+                <a href="#none">
+                  <img src="/assets/image/filter-400.svg" alt="">
+                </a>
+                <span class="filter_1">금일</span>
+                <span class="filter_2">최신순</span>
+                <span class="filter_3">상환 완료 미포함</span>
+              </div>
+            </div>
+          </div>
+          <div class="dimed" style="position: absolute;"></div>
+          <div class="modal-toast modal-sorting" style="position: absolute; max-width: 360px;">
+            <div class="modal-content ai">
+              <div class="sorting-list">
+                <ul>
+                  <li>
+                    <b class="tit">조회 기간</b>
+                    <div class="datepicker-input-wrap" id="range-picker">
+                      <input type="text" name="periodStart" readonly="" class="datepicker-input">
+                      <span class="slash">~</span>
+                      <input type="text" name="periodEnd" readonly="" class="datepicker-input">
+                    </div>
+                  </li>
+                  <li>
+                    <b class="tit">정렬</b>
+                    <div class="btn">
+                      <button type="button" class="active">높은순</button>
+                      <button type="button">과거순</button>
+                    </div>
+
+                  </li>
+                </ul>
+                <div class="option">
+                  <div class="checkbox horizontal">
+                    <input type="checkbox" class="child" id="check_1"><label for="check_1">상환 완료
+                      포함</label>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-toast-btn">
+                <button type="button" class="btn btn-full js-modal-close">확인</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-item"
+          style=" width:360px; border:1px solid #b4b4b4; border-radius: 0; position: relative !important; padding:0;">
+          <p class="section-item-tit">필터 팝업</p>
+          <header class="header" style="position: absolute;">
+            <div class="header-inner new title" style="padding-top:0">
+              <div class="product__top">
+                <h2 class="bold-18">축산 담보대출 신청</h2>
+              </div>
+            </div>
+          </header>
+          <div class="content new" style="min-height: 584px; height: 584px;">
+            <div class="main scroll-zone">
+              <div class="tag__item ">
+                <div class="item__title">창고 이체 희망일</div>
+                <div class="datepicker-input-wrap custom" id="range-picker">
+                  <div class="item__input date modal">
+                    <input type="text" name="modalDatepickerStart" readonly="" class="datepicker-input"
+                      placeholder="희망하시는 창고이체 일자를 선택해주세요.">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="dimed" style="position: absolute;"></div>
+          <div class="modal-toast modal-sorting only-data" style="position: absolute; max-width: 360px;">
+            <div class="modal-content date">
+
+            </div>
+          </div>
+        </div>
+        <div class="section-item"
+          style="width:360px; border:1px solid #b4b4b4; border-radius: 0; position: relative; padding:0;">
+          <p class="section-item-tit" style="position: absolute;
+          top: -42px;">약관동의(페이지)</p>
+          <header class="header" style="position: absolute;">
+            <div class="header-inner new title" style="padding-top:0">
+              <div class="product__top">
+                <h2 class="bold-18">축산 담보대출 신청</h2>
+              </div>
+            </div>
+          </header>
+          <div class="content new" style="min-height: 500px; height: auto; ">
+            <div class="main scroll-zone"
+              style="display: flex; flex-direction: column; justify-content: end; margin-bottom: 0; padding-bottom: 0;">
+              <div class="qna__wrap terms">
+                <div class="qna__list">
+                  <p class="qna__min_tit">제1조 (목적)</p>
+                  <div class="qna__answer">
+                    본 약관은 ㈜미트박스글로벌 (이하 "회사"라 합니다)가 제공하는 전자지급결제대행서비스 및 선불전자지급수단의 발행 및 관리 서비스(이하 통칭하여
+                    “전자금
+                    융거래서비스”라 합니다)를 이용자가 이용함에 있어 회사와 이용자 사이의 전자금융거래에 관한 기본적인 사항을 정함을 목적으로 합니다.
+                  </div>
+                </div>
+              </div>
+              <div class="qna__wrap terms">
+                <div class="qna__list">
+                  <p class="qna__min_tit">제1조 (목적)</p>
+                  <div class="qna__answer">
+                    본 약관은 ㈜미트박스글로벌 (이하 "회사"라 합니다)가 제공하는 전자지급결제대행서비스 및 선불전자지급수단의 발행 및 관리 서비스(이하 통칭하여
+                    “전자금
+                    융거래서비스”라 합니다)를 이용자가 이용함에 있어 회사와 이용자 사이의 전자금융거래에 관한 기본적인 사항을 정함을 목적으로 합니다.
+                  </div>
+                </div>
+              </div>
+              <div class="qna__wrap terms">
+                <div class="qna__list">
+                  <p class="qna__min_tit">제1조 (목적)</p>
+                  <div class="qna__answer">
+                    본 약관은 ㈜미트박스글로벌 (이하 "회사"라 합니다)가 제공하는 전자지급결제대행서비스 및 선불전자지급수단의 발행 및 관리 서비스(이하 통칭하여
+                    “전자금
+                    융거래서비스”라 합니다)를 이용자가 이용함에 있어 회사와 이용자 사이의 전자금융거래에 관한 기본적인 사항을 정함을 목적으로 합니다.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1 class="test-title">Component</h1>
+    <div class="test-section test-section--button">
+
+      <h3 class="test-title">Button/a태그 안에 들어갈 가능성이 높으므로 button 태그 유지</h3>
+      <div class="test-section-sub flex-wrap d-flex">
+        <div class="section-item">
+          <p class="section-item-tit">btn-small</p>
+          <div class="btn-wrap grid-2x2">
+            <button class="btn btn-small btn-red">Button</button>
+            <button class="btn btn-small btn-white color-red">Button</button>
+            <button class="btn btn-small btn-orange">Button</button>
+            <button class="btn btn-small btn-white color-orange">Button</button>
+            <button class="btn btn-small btn-deepGray">Button</button>
+            <button class="btn btn-small btn-white color-deepGray">Button</button>
+            <button class="btn btn-small btn-gray">Button</button>
+            <button class="btn btn-small btn-white color-gray">Button</button>
+          </div>
+        </div>
+        <!-- 디자인시안에 맞게 수정_이윤미_250312 -->
+        <div class="section-item" style="width:320px;">
+          <p class="section-item-tit">btn-medium</p>
+          <div class="btn-wrap grid-2x2">
+            <a class="btn btn-medium btn-white color-red">Button</a>
+            <a class="btn btn-medium btn-red color-white">Button</a>
+
+            <a class="btn btn-medium btn-white color-gray">Button</a>
+            <a class="btn btn-medium btn-gray color-white">Button</a>
+
+          </div>
+        </div>
+        <div class="section-item" style="width:320px;">
+          <p class="section-item-tit">btn-large</p>
+          <div class="btn-wrap grid-2x2" style="display:flex; flex-direction: column;">
+            <a class="btn btn-large btn-white color-red">Button</a>
+            <a class="btn btn-large btn-red color-white">Button</a>
+            <a class="btn btn-large btn-white color-gray">Button</a>
+            <a class="btn btn-large btn-gray color-white">Button</a>
+          </div>
+        </div>
+        <div class="section-item" style="width:320px;">
+          <p class="section-item-tit">속성 disabled로 제어되는 경우</p>
+          <div class="btn-wrap grid-2x2" style="display:flex; flex-direction: column;">
+            <p class="section-item-tit">default</p>
+            <div class="btn-wrap grid-2x2" style="display:flex; flex-direction: column;">
+              <button class="btn btn-large attribute">다음</button>
+            </div>
+            <p class="section-item-tit">disabled</p>
+            <div class="btn-wrap grid-2x2" style="display:flex; flex-direction: column;">
+              <button class="btn btn-large attribute" disabled>다음</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="itme-sub" style="margin-top: 20px;">Modals</h3>
+    <div class="test-section-sub">
+      <h4 class="test-title item-sub">toast-popup</h4>
+      <div class="block-wrap">
+        <div class="item">
+          <span class="item-name medium-16">basic</span>
+          <p class="item-feature">
+          <div class="toast-msg"
+            style="position: relative; left: 0; top:0; transform: translateX(0); width: 320px; opacity: 1;">
+            <span>알럿은 5초 간 노출 후 사라집니다.</span>
+          </div>
+          </p>
+        </div>
+        <div class="item">
+          <span class="item-name medium-16">Success</span>
+          <p class="item-feature">
+          <div class="toast-msg"
+            style="position: relative; left: 0; top:0; transform: translateX(0); width: 320px; opacity: 1">
+            <img src="/assets/image/check-circle-broken.svg">
+            <span>인터넷이 다시 연결 됨</span>
+          </div>
+          </p>
+        </div>
+        <div class="item">
+          <span class="item-name medium-16">Warning</span>
+          <p class="item-feature">
+          <div class="toast-msg"
+            style="position: relative; left: 0; top:0; transform: translateX(0); width: 320px;opacity: 1">
+            <img src="/assets/image/alert-hexagon.svg">
+            <span>인터넷 연결 상태가 좋지 않음</span>
+          </div>
+          </p>
+        </div>
+        <div class="item">
+          <span class="item-name medium-16">Danger</span>
+          <p class="item-feature">
+          <div class="toast-msg"
+            style="position: relative; left: 0; top:0; transform: translateX(0); width: 320px;opacity: 1">
+            <img src="/assets/image/alert-triangle.svg">
+            <span>인터넷 연결 끊김</span>
+          </div>
+          </p>
+        </div>
+        <div class="item">
+          <span class="item-name medium-16">Info</span>
+          <p class="item-feature">
+          <div class="toast-msg"
+            style="position: relative; left: 0; top:0; transform: translateX(0); width: 320px;opacity: 1">
+            <img src="/assets/image/info-blue.svg">
+            <span>현재 서비스 이용자 수의 급 증가로<br>
+              잠시 후 다시 시도 해주시기 바랍니다.</span>
+          </div>
+          </p>
+        </div>
+      </div>
+      <div class="block-wrap">
+        <div class="item">
+          <span class="item-name medium-16">타이틀 없을 때</span>
+          <p class="item-feature">
+          <div class="pop__detail message new"
+            style="position: relative; top: 0; left: 0; transform: translate(0); margin: 0; width: 320px;">
+            <div class="popup__cnt">
+              <strong>타이틀이 없는 경우에는<br>
+                이 유형의 팝업을 사용해주세요.</strong>
+              <!-- style.css충돌작업 group 클래스 추가-->
+              <div class="popup__btn group">
+                <a href="#none" class="btn btn-cancel js-modal-close">취소</a>
+                <a class="btn btn-default js-modal-close">확인</a>
+              </div>
+            </div>
+          </div>
+          </p>
+        </div>
+        <div class="item">
+          <span class="item-name medium-16">타이틀 있을 때</span>
+          <p class="item-feature">
+          <div class="pop__detail message new"
+            style="position: relative; top: 0; left: 0; transform: translate(0); margin: 0; width: 320px;">
+            <div class="popup__cnt">
+              <div class="popup__title">
+                <strong>팝업 타이틀입니다.</strong>
+              </div>
+              <div class="popup__cont">
+                <span>이 곳은 팝업 내용 영역입니다.<br>
+                  가로폭은 고정되고 높이값은 글 길이에 따라<br>
+                  가변적으로 변경됩니다.</span>
+                <span class="notice">※ 이 곳은 클레임 방지용 멘트 작성 영역입니다.</span>
+              </div>
+              <!-- style.css충돌작업 group 클래스 추가-->
+              <div class="popup__btn group">
+                <a href="#none" class="btn btn-cancel js-modal-close">취소</a>
+                <a class="btn btn-default js-modal-close">확인</a>
+              </div>
+            </div>
+          </div>
+          </p>
+        </div>
+        <div class="item">
+          <span class="item-name medium-16">인풋창 있는 버전</span>
+          <p class="item-feature">
+          <div class="pop__detail message new"
+            style="position: relative; top: 0; left: 0; transform: translate(0); margin: 0; width: 320px;">
+            <div class="popup__cnt">
+              <div class="popup__title">
+                <strong>팝업 타이틀입니다.</strong>
+              </div>
+              <div class="popup__cont">
+                <span>이 곳은 팝업 내용 영역입니다.<br>
+                  가로폭은 고정되고 높이값은 글 길이에 따라<br>
+                  가변적으로 변경됩니다.</span>
+                <input type="text">
+              </div>
+              <div class="popup__btn">
+                <a href="#none" class="btn btn-cancel js-modal-close">취소</a>
+                <a class="btn btn-default js-modal-close">확인</a>
+              </div>
+            </div>
+          </div>
+          </p>
+        </div>
+
+      </div>
+      <div class="block-wrap">
+        <div class="item">
+          <span class="item-name medium-16">타이틀 없을 때</span>
+          <p class="item-feature">
+          <div class="pop__detail message new"
+            style="position: relative; top: 0; left: 0; transform: translate(0); margin: 0; width: 320px;">
+            <div class="popup__cnt">
+              <strong>타이틀이 없는 경우에는<br>
+                이 유형의 팝업을 사용해주세요.</strong>
+              <div class="popup__btn">
+                <a class="btn btn-default js-modal-close">확인</a>
+              </div>
+            </div>
+          </div>
+          </p>
+        </div>
+        <div class="item">
+          <span class="item-name medium-16">타이틀 있을 때</span>
+          <p class="item-feature">
+          <div class="pop__detail message new"
+            style="position: relative; top: 0; left: 0; transform: translate(0); margin: 0; width: 320px;">
+            <div class="popup__cnt">
+              <div class="popup__title">
+                <strong>팝업 타이틀입니다.</strong>
+              </div>
+              <div class="popup__cont">
+                <span>이 곳은 팝업 내용 영역입니다.<br>
+                  가로폭은 고정되고 높이값은 글 길이에 따라<br>
+                  가변적으로 변경됩니다.</span>
+              </div>
+              <div class="popup__btn">
+                <a class="btn btn-default js-modal-close">확인</a>
+              </div>
+            </div>
+          </div>
+          </p>
+        </div>
+        <!-- 이윤미추가 -->
+        <div class="item">
+          <span class="item-name medium-16">결제/은행정보 있을 때</span>
+          <p class="item-feature">
+          <div class="pop__detail message new"
+            style="position: relative; top: 0; left: 0; transform: translate(0); margin: 0; width: 320px;">
+            <div class="popup__cnt">
+              <div class="popup__title">
+                <strong>예금주 : <span>김미트</span></strong>
+              </div>
+              <div class="popup__cont">
+                <span><span class="bank-logo"><img src="/assets/image/bank_1.svg" alt=""></span>
+                  <span>KB국민은행</span>
+                  <span>110484248384</span> 계좌 정보를<br>
+                  등록하시겠어요?</span>
+              </div>
+              <!-- style.css충돌작업 group 클래스 추가-->
+              <div class="popup__btn group">
+                <a href="#none" class="btn btn-cancel js-modal-close">취소</a>
+                <a class="btn btn-default js-modal-close">확인</a>
+              </div>
+            </div>
+          </div>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <h3 class="test-title" style="margin-top:30px;">Forms</h3>
+    <div class="test-section-sub flex-wrap d-flex">
+      <div class="section-item">
+        <p class="section-item-tit">Basic input</p>
+        <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:10px;">
+          <div style="display: flex; flex-direction: column;">
+            <div class="tag__item">
+              <div class="item__title">Label
+              </div>
+              <div class="input-wrap">
+                <input type="text" class="input--title" placeholder="placeholder">
+              </div>
+            </div>
+            <div class="tag__item">
+              <div class="item__title">Label
+              </div>
+              <div class="input-wrap">
+                <input type="text" class="input--title" placeholder="placeholder" autofocus>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <div class="tag__item">
+              <div class="item__title">Label
+              </div>
+              <div class="input-wrap">
+                <input type="text" class="input--title" value="one line detail">
+              </div>
+            </div>
+            <div class="tag__item">
+              <div class="item__title">Label
+              </div>
+              <div class="input-wrap">
+                <textarea class="input--title textarea" placeholder="placeholder" autofocus></textarea>
+              </div>
+            </div>
+            <div class="tag__item">
+              <div class="item__title">Label
+              </div>
+              <div class="input-wrap with-txt">
+                <input type="text" class="input--title" placeholder="placeholder" autofocus>
+                <span class="input--txt">kg</span>
+              </div>
+            </div>
+            <div class="tag__item">
+              <div class="item__title">Label
+              </div>
+              <div class="input-wrap with-txt">
+                <input type="text" class="input--title" placeholder="placeholder" autofocus>
+                <span class="input--txt">box</span>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <div class="tag__item">
+              <div class="item__title">Label
+              </div>
+              <div class="input-wrap with-txt error">
+                <input type="text" class="input--title error" value="one line detail">
+                <span class="input--txt">kg</span>
+              </div>
+              <p class="input-desc">error message</p>
+            </div>
+            <div class="tag__item">
+              <div class="item__title">Label
+              </div>
+              <div class="input-wrap with-txt error">
+                <input type="text" class="input--title" placeholder="placeholder" autofocus>
+                <span class="input--txt">kg</span>
+              </div>
+              <p class="input-desc">error message</p>
+            </div>
+            <div class="tag__item">
+              <div class="item__title">Label
+              </div>
+              <div class="input-wrap with-txt error">
+                <input type="text" class="input--title" placeholder="placeholder" autofocus>
+                <span class="input--txt">kg</span>
+              </div>
+              <p class="input-desc">error message</p>
+            </div>
+            <div class="tag__item">
+              <div class="item__title">Label
+              </div>
+              <div class="input-wrap with-txt">
+                <input type="text" class="input--title" placeholder="" autofocus>
+                <span class="input--txt">box</span>
+              </div>
+              <div class="total-price relative orange">
+                <span>상환 금액 : </span>
+                <span class="num">9,000,000원</span>
+              </div>
+            </div>
+            <div class="tag__item">
+              <div class="item__title">Label
+              </div>
+              <div class="input-wrap with-txt">
+                <input type="text" class="input--title" placeholder="" autofocus>
+                <span class="input--txt">box</span>
+              </div>
+              <div class="input-accordion price">
+                <div class="name">상환 예정 금액</div>
+                <button class="accordion-button">20,000,000원</button>
+                <div class="accordion-content">
+                  <p class="desc">
+                    <span class="txt">원금</span>
+                    <span class="txt">18,000,000원</span>
+                  </p>
+                  <p class="desc">
+                    <span class="txt">이자 (연 19.0%)</span>
+                    <span class="txt">2,000,000원</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-item" style="width:330px;">
+        <p class="section-item-tit">Drop-down-box</p>
+        <div class="tag__item">
+          <div class="item__title">Label
+          </div>
+          <div class="input-wrap select">
+            <div class="select-box" tabindex="0">placeholder</div>
+            <ul class="select-options">
+              <li data-value="option1">옵션 1</li>
+              <li data-value="option2">옵션 2</li>
+              <li data-value="option3">옵션 3</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tag__item">
+          <div class="item__title">Label
+          </div>
+          <div class="input-wrap with-txt error select">
+            <div class="select-box" tabindex="0">placeholder</div>
+            <ul class="select-options">
+              <li data-value="option1">옵션 1</li>
+              <li data-value="option2">옵션 2</li>
+              <li data-value="option3">옵션 3</li>
+            </ul>
+          </div>
+          <p class="input-desc">error message</p>
+        </div>
+      </div>
+
+      <div class="section-item" style="width:330px;">
+        <p class="section-item-tit">Calander-box</p>
+        <div class="tag__item">
+          <div class="item__title">Label
+          </div>
+          <div class="datepicker-input-wrap " id="range-picker">
+            <div class="item__input date w-224">
+              <input type="text" name="datepickerStart" readonly="" class="datepicker-input" placeholder="placeholder">
+              <a href="#" class="edit-btn calendar"><img src="/assets/image/calendar.svg" alt=""></a>
+            </div>
+          </div>
+        </div>
+        <div class="tag__item">
+          <div class="item__title">Label
+          </div>
+          <div class="datepicker-input-wrap with-txt error" id="range-picker">
+            <div class="item__input date w-224">
+              <input type="text" name="datepickerEnd" readonly="" class="datepicker-input" placeholder="placeholder">
+              <a href="#" class="edit-btn calendar"><img src="/assets/image/calendar.svg" alt=""></a>
+            </div>
+          </div>
+          <p class="input-desc">error message</p>
+        </div>
+      </div>
+
+      <div class="section-item" style="width:330px;">
+        <p class="section-item-tit">Movement-box</p>
+        <div class="tag__item">
+          <div class="item__title">Label
+          </div>
+          <div class="input-wrap movement">
+            <a class="link-move">txt</a>
+          </div>
+        </div>
+        <div class="tag__item">
+          <div class="item__title">Label
+          </div>
+          <div class="input-wrap movement with-txt error">
+            <a class="link-move">txt</a>
+          </div>
+          <p class="input-desc">error message</p>
+        </div>
+      </div>
+
+      <div class="section-item" style="width:330px;">
+        <p class="section-item-tit">Combo-box</p>
+        <div class="tag__item">
+          <div class="item__title">Label
+          </div>
+          <div class="input-wrap state-action">
+            <div class="item__input search expand-btn">
+              <input type="text" class="text" placeholder="원하시는 원산지를 검색해 주세요." value="">
+              <a href="" class="btn btn-search"><img src="/assets/image/search-bidding.svg" alt="검색"></a>
+            </div>
+            <div class="expand-box">
+              <a href="#none"><span class="search-list">검색결과1검색결과1검색결과1검색결과1검색결과1검색결과1</span></a>
+              <a href="#none"><span class="search-list">검색결과2</span></a>
+              <a href="#none"><span class="search-list">검색결과3</span></a>
+            </div>
+            <!-- <p class="input-desc">에러메세지</p> -->
+          </div>
+        </div>
+        <div class="tag__item">
+          <div class="item__title">Label
+          </div>
+          <div class="input-wrap state-action with-txt error">
+            <div class="item__input search expand-btn">
+              <input type="text" class="text" placeholder="원하시는 원산지를 검색해 주세요." value="">
+              <a href="" class="btn btn-search"><img src="/assets/image/search-bidding.svg" alt="검색"></a>
+            </div>
+            <div class="expand-box">
+              <a href="#none"><span class="search-list">검색결과1검색결과1검색결과1검색결과1검색결과1검색결과1</span></a>
+              <a href="#none"><span class="search-list">검색결과2</span></a>
+              <a href="#none"><span class="search-list">검색결과3</span></a>
+            </div>
+            <!-- <p class="input-desc">에러메세지</p> -->
+          </div>
+          <p class="input-desc">error message</p>
+        </div>
+      </div>
+
+      <div class="section-item" style="width:330px;">
+        <p class="section-item-tit">Option</p>
+        <div class="tag__item">
+          <div class="item__title">Label
+          </div>
+          <div class="input-wrap state-action">
+            <ul class="option-list">
+              <li data-value="option1">Option 1</li>
+              <li data-value="option2">Option 2</li>
+              <li data-value="option3">Option 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="section-item" style="width:330px;">
+        <p class="section-item-tit">Option(세로정렬 스타일)</p>
+        <div class="tag__item">
+          <div class="item__title">Label
+          </div>
+          <div class="input-wrap state-action">
+            <ul class="option-list option-list2">
+              <li data-value="option1">Option 1</li>
+              <li data-value="option2">Option 2</li>
+              <li data-value="option3">Option 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- 이윤미 추가 - 은행 옵션  -->
+      <div class="section-item" style="width:330px;">
+        <p class="section-item-tit">bank option</p>
+        <div class="input-box bank">
+          <div class="input-wrap">
+            <div class="tag__item">
+              <div class="item__title">은행 선택</div>
+              <div class="item__dashboard">
+                <div class="state-action bank">
+                  <div class="select-btn">
+                    <a href="#none" class="default-btn arrow">은행을 선택해주세요.</a>
+                  </div>
+                  <!-- 발급된 은행에는 a태그에 done클래스 추가 PS8-7-->
+                  <div class="expand-box">
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_1.svg"
+                          alt=""></span><span class="bank-name">국민은행</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_2.svg"
+                          alt=""></span><span class="bank-name">SC제일은행</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_3.svg"
+                          alt=""></span><span class="bank-name">경남은행</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_4.svg"
+                          alt=""></span><span class="bank-name">광주은행</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_5.svg"
+                          alt=""></span><span class="bank-name">기업은행</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_6.svg"
+                          alt=""></span><span class="bank-name">NH농협은행</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_7.svg"
+                          alt=""></span><span class="bank-name">아이엠뱅크(구 대구은행)</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_8.svg"
+                          alt=""></span><span class="bank-name">산업은행</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_9.svg"
+                          alt=""></span><span class="bank-name">새마을금고</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_10.svg"
+                          alt=""></span><span class="bank-name">수협은행</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_11.svg"
+                          alt=""></span><span class="bank-name">신한은행</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_12.svg"
+                          alt=""></span><span class="bank-name">신협</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_21.svg"
+                          alt=""></span><span class="bank-name">외환은행</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_13.svg"
+                          alt=""></span><span class="bank-name">우리은행</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_14.svg"
+                          alt=""></span><span class="bank-name">우체국</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_15.svg"
+                          alt=""></span><span class="bank-name">전북은행</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_16.svg"
+                          alt=""></span><span class="bank-name">농축협</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_17.svg"
+                          alt=""></span><span class="bank-name">카카오뱅크</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_18.svg"
+                          alt=""></span><span class="bank-name">케이뱅크</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_19.svg"
+                          alt=""></span><span class="bank-name">하나은행</span><span class="issued">발급됨</span></a>
+                    <a href="#none" class=""><span class="bank-logo"><img src="/assets/image/bank_20.svg"
+                          alt=""></span><span class="bank-name">한국시티은행</span><span class="issued">발급됨</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <div class="item__title">
+              <span>계좌번호</span>
+              <!-- <em class="essential">* 필수 입력</em> -->
+            </div>
+            <!-- error클래스 추가시 border 컬러 변경 -->
+            <div class="item__input">
+              <input type="text" class="text" placeholder="계좌번호를 입력해주세요." value="">
+            </div>
+            <!-- <p class="input-desc">에러메세지</p> -->
+          </div>
+          <div class="input-wrap">
+            <div class="item__title">
+              <span>예금주명</span>
+              <!-- <em class="essential">* 필수 입력</em> -->
+            </div>
+            <!-- error클래스 추가시 border 컬러 변경 -->
+            <div class="item__input">
+              <input type="text" class="text" placeholder="예금주명을 입력해주세요." value="">
+            </div>
+            <!-- <p class="input-desc">에러메세지</p> -->
+          </div>
+        </div>
+      </div>
+      <div class="section-item" style="width:330px;">
+        <p class="section-item-tit">info</p>
+        <p class="notice"><a href="#">판단 등급별 유의사항</a></p>
+
+        <div class="notice-box">
+          <div class="title bold-14">💡 확인해주세요!</div>
+          <ul class="regular-13">
+            <li>대출 기간은 60일이므로 정기 이자 납부는 1회만 진행되며, 납부 1회 이후에는 전액 상환이 필요해요.</li>
+            <li class="emphasis">창고 정보 : <span class="storage-name">창고 1</span><br>
+              <span class="strorage-addr"><a href="">서울특별시 강남구 테헤란로 35길 23</a></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="test-title" style="margin-top:30px;">other</h3>
+    <div class="test-section-sub flex-wrap d-flex">
+      <div class="section-item">
+        <p class="section-item-tit">accordion</p>
+        <div style="display:grid; gap:10px; width:400px">
+          <div class="accordion">
+            <div class="accordion-item">
+              <button class="accordion-button">아코디언 1</button>
+              <div class="accordion-content">첫 번째 아코디언 내용입니다.</div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-button">아코디언 2</button>
+              <div class="accordion-content">두 번째 아코디언 내용입니다.</div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-button">아코디언 3</button>
+              <div class="accordion-content">세 번째 아코디언 내용입니다.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-item">
+        <p class="section-item-tit">File</p>
+        <div style="display:grid; gap:10px; width:400px">
+          <div class="input-wrap file">
+            <div class="item__input add">
+              <div class="filebox">
+                <label className="input-file-button" for="input-file">File Name</label>
+                <input type="file" id="input-file" style="display: none;" />
+              </div>
+            </div>
+          </div>
+
+          <div class="input-wrap file">
+            <div class="item__input file check">
+              <div class="file-box">
+                <div class="file-info">
+                  <p class="file-name">File Name</p>
+                  <p class="file-date"><span>파일 확장자명</span>.pdf</p>
+                  <p class="capa">용량 : <span>689.1KB</span></p>
+                </div>
+                <a href="" class="btn"><span>삭제</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="input-wrap file">
+            <div class="item__input file check">
+              <div class="file-box">
+                <div class="file-info">
+                  <p class="file-name">File Name</p>
+                  <p class="file-date"><span>파일 확장자명</span>.pdf</p>
+                  <p class="capa">용량 : <span>689.1KB</span></p>
+                </div>
+                <a href="" class="btn"><span>삭제</span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-wrap file">
+            <div class="item__input file">
+              <a class="file-box" href="javascript:void(0)" onclick="return false;">
+                <div class="file-info">
+                  <p class="file-name">File Name</p>
+                  <p class="file-date"><span>파일 확장자명</span>.pdf</p>
+                  <p class="capa">용량 : <span>689.1KB</span></p>
+                </div>
+                <button onclick="event.stopPropagation();" class="btn"><span>다운로드</span></button>
+              </a>
+            </div>
+          </div>
+          <div class="input-wrap file">
+            <div class="item__input file document">
+              <a class="file-box" href="javascript:void(0)" onclick="return false;">
+                <div class="file-info">
+                  <p class="file-name">File Name</p>
+                  <p class="file-date"><span>파일 확장자명</span>.pdf</p>
+                  <p class="capa">용량 : <span>689.1KB</span></p>
+                </div>
+                <button onclick="event.stopPropagation();" class="btn"><span>다운로드</span></button>
+              </a>
+            </div>
+          </div>
+          <!-- 이윤미 추가 - 은행 등록완료 버튼  -->
+          <div class="input-wrap file bank">
+            <div class="item__input file">
+              <a class="file-box" href="javascript:void(0)" onclick="return false;">
+                <div class="file-info">
+                  <p class="bank-info">
+                    <span class="bank-logo">
+                      <img src="/assets/image/bank_1.svg" alt="KB 국민은행"></span>
+                    <span class="bank-name">KB국민은행</span>
+                  </p>
+                  <p class="account-num"><span>245311-34-2353411</span></p>
+                  <p class="name"><span>김미트</span></p>
+                </div>
+                <button onclick="event.stopPropagation();" class="btn"><span>변경</span></button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-item" style="width:300px">
+        <p class="section-item-tit">Check-point</p>
+
+        <div class="tag__item agree">
+          <div class="item__title">Label
+          </div>
+          <div class="agree-box only-check">
+            <div class="agree-all">
+              <div class="checkbox horizontal">
+                <input type="checkbox" class="parent" id="check_all"><label for="check_all">전체 동의</label>
+              </div>
+            </div>
+            <ul class="agree-detail">
+              <li>
+                <div class="checkbox horizontal">
+                  <input type="checkbox" class="child" id="check_1"><label for="check_1">약관 내용</label>
+                </div>
+              </li>
+              <li>
+                <div class="checkbox horizontal">
+                  <input type="checkbox" class="child" id="check_2"><label for="check_2">약관 내용</label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="agree-box" style="margin-top: 20px;">
+          <div class="agree-all">
+            <div class="checkbox horizontal">
+              <input type="checkbox" class="parent" id="check_all"><label for="check_all">전체 동의</label>
+            </div>
+          </div>
+          <ul class="agree-detail">
+            <li>
+              <div class="checkbox horizontal">
+                <input type="checkbox" class="child" id="check_1"><label for="check_1">약관 내용</label>
+              </div>
+            </li>
+            <li>
+              <div class="checkbox horizontal">
+                <input type="checkbox" class="child" id="check_2"><label for="check_2">약관 내용</label>
+              </div>
+            </li>
+            <li>
+              <div class="checkbox horizontal">
+                <input type="checkbox" class="child" id="check_3" disabled><label for="check_3">약관
+                  내용</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="checkbox horizontal" style="margin-top: 10px;">
+          <input type="checkbox" class="child" id="check_1"><label for="check_1">one line detail</label>
+        </div>
+
+        <div class="checkbox horizontal">
+          <input type="checkbox" class="child" id="check_1" checked><label for="check_1">multi-line
+            description multi-line description multi-line description</label>
+        </div>
+      </div>
+
+
+      <div class="section-item" style="width:300px">
+        <p class="section-item-tit">Radio</p>
+        <div class="radio-wrap">
+          <div class="radio-toggle">
+            <input type="radio" id="radio_1" name="group1" checked>
+            <label for="radio_1"></label>
+            <!-- <span class="label-text">옵션 1</span> -->
+          </div>
+          <div class="radio-toggle">
+            <input type="radio" id="radio_2" name="group1">
+            <label for="radio_2"></label>
+            <!-- <span class="label-text">옵션 2</span> -->
+          </div>
+          <div class="radio-toggle">
+            <input type="radio" id="radio_3" name="group1" disabled>
+            <label for="radio_3"></label>
+            <!-- <span class="label-text">옵션 3</span> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="section-item" style="width:300px">
+        <p class="section-item-tit">toggle</p>
+        <div class="switch-wrap">
+          <label class="switch-toggle">
+            <input type="checkbox" id="toggle_1">
+            <span class="slider"></span>
+            <!--<span class="label-text"></span>-->
+          </label>
+          <label class="switch-toggle" style="margin-top: 10px;">
+            <input type="checkbox" id="toggle_2" checked>
+            <span class="slider"></span>
+            <!--<span class="label-text"></span>-->
+          </label>
+          <label class="switch-toggle" style="margin-top: 10px;">
+            <input type="checkbox" id="toggle_3" disabled>
+            <span class="slider"></span>
+            <!--<span class="label-text"></span>-->
+          </label>
+        </div>
+
+      </div>
+
+      <div class="section-item" style="width:300px">
+        <p class="section-item-tit">Click BTN</p>
+        <div class="tag__item">
+          <div class="item__title">Label
+          </div>
+          <div class="input-wrap click">
+            <button type="button" class="click-btn check">title</button>
+            <button type="button" class="click-btn check" style="margin-top: 10px;">title</button>
+            <button type="button" class="click-btn" style="margin-top: 10px;">title</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-item">
+        <p class="section-item-tit">Tag</p>
+        <div class="grid-2x2" style="display:grid; gap:10px; width:400px">
+          <div class="tag-wrap" style="display:flex">
+            <div class="tag red tag-small round-4">status</div>
+            <div class="tag red tag-large round-4">status</div>
+            <div class="tag red tag-small round-100">status</div>
+            <div class="tag red tag-large round-100">status</div>
+          </div>
+          <div class="tag-wrap" style="display:flex">
+            <div class="tag orange tag-small round-4">status</div>
+            <div class="tag orange tag-large round-4">status</div>
+            <div class="tag orange tag-small round-100">status</div>
+            <div class="tag orange tag-large round-100">status</div>
+          </div>
+          <div class="tag-wrap" style="display:flex">
+            <div class="tag gray tag-small round-4">status</div>
+            <div class="tag gray tag-large round-4">status</div>
+            <div class="tag gray tag-small round-100">status</div>
+            <div class="tag gray tag-large round-100">status</div>
+          </div>
+          <div class="tag-wrap" style="display:flex">
+            <div class="tag deepgray tag-small round-4">status</div>
+            <div class="tag deepgray tag-large round-4">status</div>
+            <div class="tag deepgray tag-small round-100">status</div>
+            <div class="tag deepgray tag-large round-100">status</div>
+          </div>
+          <div class="tag-wrap" style="display:flex">
+            <div class="tag danger tag-small round-4">status</div>
+            <div class="tag danger tag-large round-4">status</div>
+            <div class="tag danger tag-small round-100">status</div>
+            <div class="tag danger tag-large round-100">status</div>
+          </div>
+          <div class="tag-wrap" style="display:flex">
+            <div class="tag white-red tag-small round-4">status</div>
+            <div class="tag white-red tag-large round-4">status</div>
+            <div class="tag white-red tag-small round-100">status</div>
+            <div class="tag white-red tag-large round-100">status</div>
+          </div>
+          <div class="tag-wrap" style="display:flex">
+            <div class="tag white-orange tag-small round-4">status</div>
+            <div class="tag white-orange tag-large round-4">status</div>
+            <div class="tag white-orange tag-small round-100">status</div>
+            <div class="tag white-orange tag-large round-100">status</div>
+          </div>
+          <div class="tag-wrap" style="display:flex">
+            <div class="tag white tag-small round-4">status</div>
+            <div class="tag white tag-large round-4">status</div>
+            <div class="tag white tag-small round-100">status</div>
+            <div class="tag white tag-large round-100">status</div>
+          </div>
+          <div class="tag-wrap" style="display:flex">
+            <div class="tag white-danger tag-small round-4">status</div>
+            <div class="tag white-danger tag-large round-4">status</div>
+            <div class="tag white-danger tag-small round-100">status</div>
+            <div class="tag white-danger tag-large round-100">status</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-item">
+        <p class="section-item-tit" style="margin-bottom: 20px;">State bar : 마지막 상태바는 상태구분 상관없이 아래화살표없음</p>
+        <div style="display:grid; gap:10px; width:360px">
+          <div class="process-box">
+            <!-- 미확인 : yet / 확인 중 : ing / 확인완료 : done -> process-item에 클래스 추가 -->
+            <div class="process-item done">
+              <div class="process-title">상태완료</div>
+              <span class="process-time">2026-01-08 17:00</span>
+            </div>
+
+            <div class="process-item done orange">
+              <div class="process-title">상태완료 - 주황색</div>
+              <span class="process-time">2026-01-08 17:00</span>
+            </div>
+
+            <div class="process-item ing">
+              <div class="process-title">확인중 상태</div>
+              <span class="process-time">2026-01-08 17:00</span>
+            </div>
+            <div class="process-item ing orange">
+              <div class="process-title">확인중 상태 - 주황색</div>
+              <span class="process-time">2026-01-08 17:00</span>
+            </div>
+            <div class="process-item yet">
+              <div class="process-title">미확인 상태</div>
+              <span class="process-time">2026-01-08 17:00</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="section-item">
+        <p class="section-item-tit">notice</p>
+        <div style="display:grid; gap:10px; width:400px">
+          <div class="gray-box">
+            <p class="tit">Title</p>
+            <p class="txt">detail</p>
+          </div>
+          <div class="gray-box" style="margin-top:10px">
+            <p class="tit">Title</p>
+            <ul class="lists dot">
+              <li>detail</li>
+              <li>detail</li>
+              <li>detail</li>
+              <li>detail</li>
+              <li>detail</li>
+              <li>detail</li>
+              <li>detail</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="section-item">
+        <p class="section-item-tit">information</p>
+        <div style="display:grid; gap:10px; width:400px">
+          <div class="info-item">
+            <p class="info-tit">Label</p>
+            <div class="gray-box">
+              <ul class="lists info">
+                <li>
+                  <p>division</p><span>one line detail</span>
+                </li>
+                <li>
+                  <p>division</p><span>one line detail</span>
+                </li>
+                <li>
+                  <p>division</p><span>one line detail</span>
+                </li>
+                <li>
+                  <p>division</p><span>one line detail</span>
+                </li>
+                <li>
+                  <p>division</p><span>one line detail</span>
+                </li>
+                <li>
+                  <p>division</p><span>one line detail</span>
+                </li>
+                <li>
+                  <p>division</p><span>one line detailone line detailone line detailone line
+                    detail</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="section-item">
+        <p class="section-item-tit">card-block</p>
+        <div style="display:grid; gap:10px; width:360px">
+
+
+          <div class="card-block">
+            <div class="card-block-item main">
+              <p class="cate">예상 한도 범위</p>
+              <p class="value">8천만 원 ~ 3억</p>
+            </div>
+            <div class="card-block-item sub">
+              <p class="cate">대출 금리</p>
+              <p class="value">12.0%</p>
+            </div>
+            <div class="card-block-item sub">
+              <p class="cate">대출 기간</p>
+              <p class="value">60일</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="section-item">
+        <p class="section-item-tit">계산기</p>
+        <div style="display:grid; gap:10px; width:360px">
+
+
+          <div class="calc-box no-padding-ele fade-in">
+            <div class="calc-box-title">대출 이자 계산기</div>
+            <div class="calc-box-visual">
+              <div class="bg"></div>
+              <div class="calc-box-header">
+                <!-- 금액 직접 입력(price-btn) 누르면 price에 is-active 클래스 추가 -->
+                <!-- 한도 범위 이외 금액 입력시 price에 is-error 클래스 추가 -->
+                <p class="price">
+                  <span id="calc-box-amount">100,000,000</span>
+                  <input type="text" id="safeBoxInput" placeholder="100,000,000원">
+                </p>
+                <p class="rate">금리 (12.0%)</p>
+                <button type="button" class="price-btn">금액 직접 입력</button>
+                <!-- 금액 직접 입력(prcie-btn) 눌렀을 때
+								<button type="button" class="price-btn">확인</button>
+								-->
+              </div>
+              <div class="slider-container">
+                <input type="range" id="slider" min="0" max="300000000" value="300000000" step="10000000">
+              </div>
+            </div>
+            <div class="calc-box-result">
+              <p><span class="result result-1">150,000,000원</span>을 대출 받으면,<br>
+                총 이자는 <span class="result result-2">18,000,000원</span>이에요.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="section-item">
+        <p class="section-item-tit" style="margin-bottom:67px">그래프</p>
+        <div style="display:grid; gap:10px; width:360px">
+          <div class="graph-item">
+            <p class="state-point">
+              <span class="point-title">내 담보가치</span>
+              <span class="percentage safe">(0%)</span>
+            </p>
+            <p class="graph"></p>
+            <p class="state-text bold-14">현재 담보 상태는 <span class="safe">매우 안전한</span> 상태예요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-item">
+        <p class="section-item-tit" style="margin-bottom:0px">상태카드</p>
+        <div style="display:grid; flex-wrap: wrap; gap: 10px;" >
+          <div class="state-card orange ing" >
+            <div class="tag-wrap">
+              <div class="tag status white-orange tag-small round-4">접수 신청서 작성 중</div>
+            </div>
+            <p class="summary"><span>김미트</span>신청서 작성일 : 2025-01-08</p>
+            <ul class="content-wrap">
+              <li><span class="tit">상품</span><span class="txt">축산물 담보 대출</span></li>
+              <li><span class="tit">신청서 작성 가능일시</span><span class="txt">2026-05-22 17:00까지</span></li>
+              <li><span class="tit">품목명</span><span class="txt">갈비늑간살</span></li>
+              <li><span class="tit">수량</span><span class="txt">500box</span></li>
+              <li><span class="tit">중량</span><span class="txt">20,000kg</span></li>
+            </ul>
+            <div class="txt-wrap">
+              <p class="warning">* 신청서 작성 가능일시가 지나면 입력된 정보들은 모두 삭제돼요!</p>
+            </div>
+            <div class="btn-wrap">
+              <button class="btn btn-orange">이어서 작성</button>
+            </div>
+          </div>
+          <div class="state-card orange end">
+            <div class="tag-wrap">
+              <div class="tag status white-orange tag-small round-4">접수 완료</div>
+              <div class="tag orange tag-small round-4">LP-SLT01-20250204-9C4B5E</div>
+            </div>
+            <p class="summary"><span>김미트</span>접수 완료일 : 2025-01-08</p>
+            <ul class="content-wrap">
+              <li><span class="tit">상품</span><span class="txt">축산물 담보 대출</span></li>
+              <li><span class="tit">품목명</span><span class="txt">갈비늑간살</span></li>
+              <li><span class="tit">수량</span><span class="txt">500box</span></li>
+              <li><span class="tit">중량</span><span class="txt">20,000kg</span></li>
+              <li><span class="tit">희망 대출 금액</span><span class="txt f_bold">300,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-orange">접수 정보 확인</button>
+            </div>
+          </div>
+          <div class="state-card gray end">
+            <div class="tag-wrap">
+              <div class="tag status white-gray tag-small round-4">신청 취소</div>
+              <div class="tag deepgray tag-small round-4">LP-SLT01-20250204-9C4B5E</div>
+            </div>
+            <p class="summary"><span>김미트</span>신청 취소일 : 2025-01-08</p>
+            <ul class="content-wrap">
+              <li><span class="tit">상품</span><span class="txt">축산물 담보 대출</span></li>
+              <li><span class="tit">품목명</span><span class="txt">갈비늑간살</span></li>
+              <li><span class="tit">수량</span><span class="txt">500box</span></li>
+              <li><span class="tit">중량</span><span class="txt">20,000kg</span></li>
+              <li><span class="tit">희망 대출 금액</span><span class="txt f_bold">300,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-gray">상세</button>
+            </div>
+          </div>
+          <div class="state-card blue end">
+            <div class="tag-wrap">
+              <div class="tag status white-blue tag-small round-4">대출 계약 완료</div>
+              <div class="tag blue tag-small round-4">LP-SLT01-20250204-9C4B5E</div>
+            </div>
+            <p class="summary"><span>김미트</span>만기일 : 2025-01-08</p>
+            <ul class="content-wrap">
+              <li><span class="tit">상품</span><span class="txt">축산물 담보 대출</span></li>
+              <li><span class="tit">대출 계좌 번호</span><span class="txt">1002-653-190400</span></li>
+              <li><span class="tit">품목명</span><span class="txt">갈비늑간살</span></li>
+              <li><span class="tit">수량</span><span class="txt">500box</span></li>
+              <li><span class="tit">중량</span><span class="txt">20,000kg</span></li>
+              <li><span class="tit">대출 금액</span><span class="txt f_bold">300,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-gray">상세</button>
+            </div>
+          </div>
+          <div class="state-card gray end">
+            <div class="tag-wrap">
+              <div class="tag status white-gray tag-small round-4">상환 완료</div>
+              <div class="tag deepgray tag-small round-4">1002-653-190400</div>
+            </div>
+            <p class="summary"><span>김미트</span>신청 취소일 : 2025-01-08</p>
+            <ul class="content-wrap">
+              <li><span class="tit">품목명</span><span class="txt">미박삼겹살</span></li>
+              <li><span class="tit">대출 금액</span><span class="txt">300,000,000원</span></li>
+              <li><span class="tit">대출 잔액</span><span class="txt f_bold">0원</span></li>
+              <li><span class="tit">상환 완료일</span><span class="txt">2025-12-25</span></li>
+              <li><span class="tit">출고 가능 박스 수량 </span><span class="txt">0 box</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-gray">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card blue">
+            <div class="tag-wrap">
+              <div class="tag status white-blue tag-small round-4">대출 실행</div>
+              <div class="tag blue tag-small round-4">3333-13-2881660</div>
+
+            </div>
+            <p class="summary"><span>김미트</span>만기일 : 2025-01-08</p>
+            <ul class="content-wrap">
+              <li><span class="tit">품목명</span><span class="txt">갈비늑간살</span></li>
+              <li><span class="tit">대출 금액</span><span class="txt">300,000,000원</span></li>
+              <li><span class="tit">대출 잔액</span><span class="txt f_bold">300,000,000원</span></li>
+              <li><span class="tit">정기 이자 납부일</span><span class="txt">500box</span></li>
+              <li><span class="tit">중량</span><span class="txt">2025-05-11</span></li>
+              <li><span class="tit">출고 가능 박스 수량 </span><span class="txt">500 box</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-blue">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card danger end">
+            <div class="tag-wrap">
+              <div class="tag status white-danger tag-small round-4">연체</div>
+              <div class="tag danger tag-small round-4">1002-653-190400</div>
+            </div>
+            <p class="summary"><span>김미트</span>만기일 : 2025-01-08</p>
+            <ul class="content-wrap">
+              <li><span class="tit">품목명</span><span class="txt">갈비늑간살</span></li>
+              <li><span class="tit">대출 금액</span><span class="txt">300,000,000원</span></li>
+              <li><span class="tit">대출 잔액</span><span class="txt f_bold">300,000,000원</span></li>
+              <li><span class="tit">연체일 수 </span><span class="txt">6일</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-danger">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card gray end">
+            <div class="tag-wrap">
+              <div class="tag status white-gray tag-small round-4">상환 완료</div>
+              <div class="tag deepgray tag-small round-4">1002-653-190400</div>
+            </div>
+            <p class="summary"><span>김미트</span>신청 취소일 : 2025-01-08</p>
+            <ul class="content-wrap">
+              <li><span class="tit">품목명</span><span class="txt">미박삼겹살</span></li>
+              <li><span class="tit">대출 금액</span><span class="txt">300,000,000원</span></li>
+              <li><span class="tit">대출 잔액</span><span class="txt f_bold">0원</span></li>
+              <li><span class="tit">상환 완료일</span><span class="txt">2025-12-25</span></li>
+              <li><span class="tit">출고 가능 박스 수량 </span><span class="txt">0 box</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-gray">계약서 보기</button>
+              <button class="btn btn-gray">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card blue">
+            <div class="tag-wrap">
+              <div class="tag status white-blue tag-small round-4">대출 실행</div>
+              <div class="tag blue tag-small round-4">3333-13-2881660</div>
+
+            </div>
+            <p class="summary"><span>김미트</span>만기일 : 2025-01-08</p>
+            <ul class="content-wrap">
+              <li><span class="tit">품목명</span><span class="txt">갈비늑간살</span></li>
+              <li><span class="tit">대출 금액</span><span class="txt">300,000,000원</span></li>
+              <li><span class="tit">대출 잔액</span><span class="txt f_bold">300,000,000원</span></li>
+              <li><span class="tit">정기 이자 납부일</span><span class="txt">500box</span></li>
+              <li><span class="tit">중량</span><span class="txt">2025-05-11</span></li>
+              <li><span class="tit">출고 가능 박스 수량 </span><span class="txt">500 box</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-blue">계약서 보기</button>
+              <button class="btn btn-blue">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card danger end">
+            <div class="tag-wrap">
+              <div class="tag status white-danger tag-small round-4">연체</div>
+              <div class="tag danger tag-small round-4">1002-653-190400</div>
+            </div>
+            <p class="summary"><span>김미트</span>만기일 : 2025-01-08</p>
+            <ul class="content-wrap">
+              <li><span class="tit">품목명</span><span class="txt">갈비늑간살</span></li>
+              <li><span class="tit">대출 금액</span><span class="txt">300,000,000원</span></li>
+              <li><span class="tit">대출 잔액</span><span class="txt f_bold">300,000,000원</span></li>
+              <li><span class="tit">연체일 수 </span><span class="txt">6일</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-danger">계약서 보기</button>
+              <button class="btn btn-danger">상세보기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-item">
+        <p class="section-item-tit" style="margin-bottom:0px">대출관리 상태카드</p>
+        <div style="display:grid; gap:10px; width:360px">
+          <div class="state-card gray end">
+            <div class="tag-wrap">
+              <div class="tag status white-gray tag-small round-4">상환 완료</div>
+              <div class="tag deepgray tag-small round-4">1002-653-190400</div>
+            </div>
+            <p class="summary"><span>김미트</span>신청 취소일 : 2025-01-08</p>
+            <ul class="content-wrap">
+              <li><span class="tit">품목명</span><span class="txt">미박삼겹살</span></li>
+              <li><span class="tit">대출 금액</span><span class="txt">300,000,000원</span></li>
+              <li><span class="tit">대출 잔액</span><span class="txt f_bold">0원</span></li>
+              <li><span class="tit">상환 완료일</span><span class="txt">2025-12-25</span></li>
+              <li><span class="tit">출고 가능 박스 수량 </span><span class="txt">0 box</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-gray">계약서 보기</button>
+              <button class="btn btn-gray">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card blue end">
+            <div class="tag-wrap">
+              <div class="tag status white-blue tag-small round-4">대출 실행</div>
+              <div class="tag blue tag-small round-4">3333-13-2881660</div>
+
+            </div>
+            <p class="summary"><span>김미트</span>만기일 : 2025-01-08</p>
+            <ul class="content-wrap">
+              <li><span class="tit">품목명</span><span class="txt">갈비늑간살</span></li>
+              <li><span class="tit">대출 금액</span><span class="txt">300,000,000원</span></li>
+              <li><span class="tit">대출 잔액</span><span class="txt f_bold">300,000,000원</span></li>
+              <li><span class="tit">정기 이자 납부일</span><span class="txt">500box</span></li>
+              <li><span class="tit">중량</span><span class="txt">2025-05-11</span></li>
+              <li><span class="tit">출고 가능 박스 수량 </span><span class="txt">500 box</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-blue">계약서 보기</button>
+              <button class="btn btn-blue">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card danger end">
+            <div class="tag-wrap">
+              <div class="tag status white-danger tag-small round-4">연체</div>
+              <div class="tag danger tag-small round-4">1002-653-190400</div>
+            </div>
+            <p class="summary"><span>김미트</span>만기일 : 2025-01-08</p>
+            <ul class="content-wrap">
+              <li><span class="tit">품목명</span><span class="txt">갈비늑간살</span></li>
+              <li><span class="tit">대출 금액</span><span class="txt">300,000,000원</span></li>
+              <li><span class="tit">대출 잔액</span><span class="txt f_bold">300,000,000원</span></li>
+              <li><span class="tit">연체일 수 </span><span class="txt">6일</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-danger">계약서 보기</button>
+              <button class="btn btn-danger">상세보기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-item">
+        <p class="section-item-tit" style="margin-bottom:0px">대출 관리 상세 상태카드</p>
+        <div style="display:grid; gap:10px;">
+          <div class="state-card orange">
+            <div class="tag-wrap">
+              <div class="tag orange tag-small round-4">부분 상환</div>
+              <div class="tag status white-orange tag-small round-4">출고 요청 대기</div>
+            </div>
+            <p class="summary"><span>김미트</span>출고 요청일 : 2025-03-22</p>
+            <ul class="content-wrap">
+              <li><span class="tit">창고이체 완료일</span><span class="txt">2025-03-25</span></li>
+              <li><span class="tit">수량</span><span class="txt">100 box</span></li>
+              <li><span class="tit">중량</span><span class="txt">4,000 kg</span></li>
+              <li><span class="tit">상환 금액</span><span class="txt f_bold">20,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-orange">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card orange">
+            <div class="tag-wrap">
+              <div class="tag orange tag-small round-4">부분 상환</div>
+              <div class="tag status white-orange tag-small round-4">출고 요청</div>
+            </div>
+            <p class="summary"><span>김미트</span>출고 요청일 : 2025-03-22</p>
+            <ul class="content-wrap">
+              <li><span class="tit">희망 출고일</span><span class="txt">2025-03-25</span></li>
+              <li><span class="tit">희망 출고 방식</span><span class="txt">창고출고</span></li>
+              <li><span class="tit">수량</span><span class="txt">100 box</span></li>
+              <li><span class="tit">중량</span><span class="txt">4,000 kg</span></li>
+              <li><span class="tit">상환 금액</span><span class="txt f_bold">20,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-orange">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card orange">
+            <div class="tag-wrap">
+              <div class="tag orange tag-small round-4">전체 상환</div>
+              <div class="tag status white-orange tag-small round-4">출고 요청</div>
+            </div>
+            <p class="summary"><span>김미트</span>출고 요청일 : 2025-03-22</p>
+            <ul class="content-wrap">
+              <li><span class="tit">희망 출고일</span><span class="txt">2025-03-25</span></li>
+              <li><span class="tit">희망 출고 방식</span><span class="txt">창고출고</span></li>
+              <li><span class="tit">수량</span><span class="txt">100 box</span></li>
+              <li><span class="tit">중량</span><span class="txt">4,000 kg</span></li>
+              <li><span class="tit">상환 금액</span><span class="txt f_bold">20,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-orange">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card orange">
+            <div class="tag-wrap">
+              <div class="tag orange tag-small round-4">전체 상환</div>
+              <div class="tag status white-orange tag-small round-4">창고출고 완료</div>
+            </div>
+            <p class="summary"><span>김미트</span>출고 요청일 : 2025-03-22</p>
+            <ul class="content-wrap">
+              <li><span class="tit">창고출고 완료일</span><span class="txt">2025-03-25</span></li>
+              <li><span class="tit">수량</span><span class="txt">100 box</span></li>
+              <li><span class="tit">중량</span><span class="txt">4,000 kg</span></li>
+              <li><span class="tit">상환 금액</span><span class="txt f_bold">20,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-orange">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card orange">
+            <div class="tag-wrap">
+              <div class="tag orange tag-small round-4">부분 상환</div>
+              <div class="tag status white-orange tag-small round-4">창고출고 완료</div>
+            </div>
+            <p class="summary"><span>김미트</span>출고 요청일 : 2025-03-22</p>
+            <ul class="content-wrap">
+              <li><span class="tit">창고출고 완료일</span><span class="txt">2025-03-25</span></li>
+              <li><span class="tit">수량</span><span class="txt">100 box</span></li>
+              <li><span class="tit">중량</span><span class="txt">4,000 kg</span></li>
+              <li><span class="tit">상환 금액</span><span class="txt f_bold">20,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-orange">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card orange">
+            <div class="tag-wrap">
+              <div class="tag orange tag-small round-4">부분 상환</div>
+              <div class="tag status white-orange tag-small round-4">창고이체 완료</div>
+            </div>
+            <p class="summary"><span>김미트</span>출고 요청일 : 2025-03-22</p>
+            <ul class="content-wrap">
+              <li><span class="tit">창고이체 완료일</span><span class="txt">2025-03-25</span></li>
+              <li><span class="tit">수량</span><span class="txt">100 box</span></li>
+              <li><span class="tit">중량</span><span class="txt">4,000 kg</span></li>
+              <li><span class="tit">상환 금액</span><span class="txt f_bold">20,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-orange">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card orange">
+            <div class="tag-wrap">
+              <div class="tag orange tag-small round-4">부분 상환 1회차</div>
+              <div class="tag status white-orange tag-small round-4">창고출고 완료</div>
+            </div>
+            <p class="summary"><span>김미트</span>출고 요청일 : 2025-03-22</p>
+            <ul class="content-wrap">
+              <li><span class="tit">창고출고 완료일</span><span class="txt">2025-03-25</span></li>
+              <li><span class="tit">수량</span><span class="txt">100 box</span></li>
+              <li><span class="tit">중량</span><span class="txt">4,000 kg</span></li>
+              <li><span class="tit">상환 금액</span><span class="txt f_bold">20,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-orange">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card orange">
+            <div class="tag-wrap">
+              <div class="tag orange tag-small round-4">전체 상환</div>
+              <div class="tag status white-orange tag-small round-4">창고이체 완료</div>
+            </div>
+            <p class="summary"><span>김미트</span>출고 요청일 : 2025-03-22</p>
+            <ul class="content-wrap">
+              <li><span class="tit">창고이체 완료일</span><span class="txt">2025-03-25</span></li>
+              <li><span class="tit">수량</span><span class="txt">100 box</span></li>
+              <li><span class="tit">중량</span><span class="txt">4,000 kg</span></li>
+              <li><span class="tit">상환 금액</span><span class="txt f_bold">20,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-orange">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card orange end">
+            <div class="tag-wrap">
+              <div class="tag orange tag-small round-4">정기 이자</div>
+              <div class="tag status white-orange tag-small round-4">이자 납부 대기</div>
+            </div>
+            <p class="summary"><span>김미트</span>만기일 : 2025-05-11</p>
+            <ul class="content-wrap">
+              <li><span class="tit">이자 납부기한</span><span class="txt">2025-03-25 23:59까지</span></li>
+              <li><span class="tit">이자 납부 계좌</span>
+                <p class="txt-box">
+                  <span class="txt">우리은행</span>
+                  <span class="txt">1002-653-190400</span>
+                </p>
+              </li>
+              <li><span class="tit">이자 납부 금액</span><span class="txt f_bold">200,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-orange">상세보기</button>
+            </div>
+          </div>
+          <!-- state-card 추가  0423-->
+          <div class="state-card orange end">
+            <div class="tag-wrap">
+              <div class="tag orange tag-small round-4">정기 이자</div>
+              <div class="tag status white-orange tag-small round-4">이자 연체</div>
+            </div>
+            <p class="summary"><span>김미트</span>만기일 : 2025-05-11</p>
+            <ul class="content-wrap">
+              <li><span class="tit">이자 납부일</span><span class="txt">2025-03-25</span></li>
+              <li><span class="tit">이자 납부 계좌</span>
+                <p class="txt-box">
+                  <span class="txt">우리은행</span>
+                  <span class="txt">1002-653-190400</span>
+                </p>
+              </li>
+              <li><span class="tit">이자 연체일 수</span><span class="txt">3일</span></li>
+              <li><span class="tit">이자 납부 금액</span><span class="txt f_bold">200,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-orange">상세보기</button>
+            </div>
+          </div>
+          <!-- //state-card 추가  0423-->
+          <div class="state-card orange end">
+            <div class="tag-wrap">
+              <div class="tag orange tag-small round-4">정기 이자</div>
+              <div class="tag status white-orange tag-small round-4">이자 납부 완료</div>
+            </div>
+            <p class="summary"><span>김미트</span>만기일 : 2025-05-11</p>
+            <ul class="content-wrap">
+              <li><span class="tit">이자 납부 완료일</span><span class="txt">2025-03-25</span></li>
+              <li><span class="tit">이자 납부 계좌</span>
+                <p class="txt-box">
+                  <span class="txt">우리은행</span>
+                  <span class="txt">1002-653-190400</span>
+                </p>
+              </li>
+              <li><span class="tit">이자 납부 금액</span><span class="txt f_bold">200,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-orange">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card gray end">
+            <div class="tag-wrap">
+              <div class="tag status white-gray tag-small round-4">출고 요청 취소</div>
+            </div>
+            <p class="summary"><span>김미트</span>출고 요청 취소일 : 2025-03-23</p>
+            <ul class="content-wrap">
+              <li><span class="tit">상품</span><span class="txt">축산물 담보 대출</span></li>
+              <li><span class="tit">대출 계좌 번호</span><span class="txt">3333-13-2881660</span></li>
+              <li><span class="tit">희망 출고 방식</span><span class="txt">창고이체</span></li>
+              <li><span class="tit">상환 금액</span><span class="txt f_bold">20,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-gray">상세보기</button>
+            </div>
+          </div>
+          <!-- state-card 추가  0423-->
+          <div class="state-card danger end">
+            <div class="tag-wrap">
+              <div class="tag danger tag-small round-4">연체</div>
+              <div class="tag status white-danger tag-small round-4">연체 납부 완료</div>
+            </div>
+            <p class="summary"><span>김미트</span>만기일 : 2025-05-11</p>
+            <ul class="content-wrap">
+              <li><span class="tit">납부 완료일</span><span class="txt">2025-05-25</span></li>
+              <li><span class="tit">납부 금액 </span><span class="txt f_bold">20,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-danger">상세보기</button>
+            </div>
+          </div>
+            <!-- state-card 추가  0423-->
+          <div class="state-card danger end">
+            <div class="tag-wrap">
+              <div class="tag danger tag-small round-4">공매</div>
+              <div class="tag status white-danger tag-small round-4">공매 집행 대기</div>
+            </div>
+            <p class="summary"><span>김미트</span>만기일 : 2025-05-11</p>
+            <ul class="content-wrap">
+              <li><span class="tit">공매 집행 예정일</span><span class="txt">2025-05-25</span></li>
+              <li><span class="tit">연체일 수 </span><span class="txt">14일</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-danger">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card danger end">
+            <div class="tag-wrap">
+              <div class="tag danger tag-small round-4">공매</div>
+              <div class="tag status white-danger tag-small round-4">공매 집행</div>
+            </div>
+            <p class="summary"><span>김미트</span>만기일 : 2025-05-11</p>
+            <ul class="content-wrap">
+              <li><span class="tit">공매 집행</span><span class="txt">2025-05-25</span></li>
+              <li><span class="tit">연체일 수 </span><span class="txt">14일</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-danger">상세보기</button>
+            </div>
+          </div>
+          <div class="state-card danger end">
+            <div class="tag-wrap">
+              <div class="tag danger tag-small round-4">공매</div>
+              <div class="tag status white-danger tag-small round-4">공매 완료</div>
+            </div>
+            <p class="summary"><span>김미트</span>만기일 : 2025-05-11</p>
+            <ul class="content-wrap">
+              <li><span class="tit">공매 완료일</span><span class="txt">2025-05-27</span></li>
+              <li><span class="tit">연체일 수 </span><span class="txt">16일</span></li>
+              <li><span class="tit">공매 금액 </span><span class="txt f_bold">100,000,000원</span></li>
+            </ul>
+            <div class="btn-wrap">
+              <button class="btn btn-danger">상세보기</button>
+            </div>
+          </div>
+        </div>
+        <div class="fixed-button">
+        </div>
+      </div>
+      <div class="section-item">
+        <p class="section-item-tit" style="margin-bottom:30px">정보리스트</p>
+        <div style="display:grid; gap:10px; width:360px">
+          <div class="detail-info-list">
+            <div class="title">
+              <p>출고 요청 정보</p>
+            </div>
+            <ul class="detail-info-list-ul no-margin">
+              <li>
+                <div class="name">대출 만기일</div>
+                <p class="desc red">2025-03-08</p>
+              </li>
+              <li>
+                <div class="name">예금주명</div>
+                <p class="desc">미트매치_김미트</p>
+              </li>
+              <li>
+                <div class="name">상환 계좌 정보</div>
+                <p class="desc">
+                  <span class="txt">우리은행</span>
+                  <span class="txt"><a>02-36565-4564564 <img src="/assets/image/copy-icon.svg" /></a></span>
+                </p>
+              </li>
+              <li>
+                <div class="name">상환 금액</div>
+                <button class="accordion-button">20,000,000원</button>
+                <div class="accordion-content">
+                  <p class="desc">
+                    <span class="txt">원금</span>
+                    <span class="txt">18,000,000원</span>
+                  </p>
+                  <p class="desc">
+                    <span class="txt">이자 (연 19.0%)</span>
+                    <span class="txt">2,000,000원</span>
+                  </p>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+          <div class="info-message warning">
+            <p>
+              <img src="/assets/image/info-red-16.svg" alt="">
+              입금이 늦어지면 원하는 날짜에 출고가 어려워질 수 있어요.
+            </p>
+          </div>
+          <div class="btn underline btn-center">
+            <a href="">입찰 취소</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-item" style="height:max-content">
+        <p class="section-item-tit" style="margin-bottom:30px">정보리스트</p>
+        <div style="display:grid; gap:10px; width:360px">
+          <div class="detail-info-list accordion">
+            <div class="title">
+              <p>담보물 정보</p>
+            </div>
+            <ul class="detail-info-list-ul no-margin">
+              <li>
+                <div class="name">축종</div>
+                <p class="desc red">소</p>
+              </li>
+              <li>
+                <div class="name">품목명</div>
+                <p class="desc">갈비늑간살</p>
+              </li>
+              <li>
+                <div class="name">원산지</div>
+                <p class="desc">
+                  미국
+                </p>
+              </li>
+              <li>
+                <div class="name">등급</div>
+                <p class="desc">
+                  1등급
+                </p>
+              </li>
+              <li>
+                <div class="name">등급</div>
+                <p class="desc">
+                  1등급
+                </p>
+              </li>
+              <li>
+                <div class="name">등급</div>
+                <p class="desc">
+                  1등급
+                </p>
+              </li>
+            </ul>
+            <div class="expand up">
+              <a href=""><span>더보기</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-item" style="height:max-content">
+        <p class="section-item-tit" style="margin-bottom:30px">대출 상환관리 상태배너(파란색&오렌지색 : 클릭가능한배너)</p>
+        <div style="display:grid; gap:10px; width:360px">
+          <!-- 이자 납부 시점 도래 alert-box.soon 클릭가능한배너-->
+          <a href="#" class="alert-box soon">
+            <div class="alert-cont">
+              <strong>정기 이자 납부일에 도래했어요!</strong>
+              <span>기한에 맞춰 이자를 납부할 수 있도록 준비해주세요.</span>
+            </div>
+          </a>
+
+          <!-- 이자납부당일 alert-box.soon.today 클릭가능한배너-->
+          <a href="#" class="alert-box soon today">
+            <div class="alert-cont">
+              <strong>정기 이자 납부 당일이에요!</strong>
+              <span>기한 내에 정기 이자를 납부해주세요.</span>
+            </div>
+          </a>
+          <!-- 만기일 도래 alert-box.expiration 클릭가능한배너 -->
+          <a href="#" class="alert-box expiration">
+            <div class="alert-cont">
+              <strong>만기일이 얼마 남지 않았어요!</strong>
+              <span>전액 상환을 할 수 있도록 준비해주세요.</span>
+            </div>
+          </a>
+          <!-- 만기일 당일 alert-box.expiration.today 클릭가능한배너-->
+          <a href="#" class="alert-box expiration today">
+            <div class="alert-cont">
+              <strong>만기일 당일이에요!</strong>
+              <span>기한 내에 전액 상환이 필요해요.</span>
+            </div>
+          </a>
+
+          <!-- 정기 이자 연체 alert-box delay interest -->
+          <div class="alert-box delay interest">
+            <div class="alert-cont">
+              <strong>정기 이자가 연체되었어요!</strong>
+              <span>상환이 이뤄지지 않으면 공매 집행 단계로 넘어가요.</span>
+            </div>
+          </div>
+
+          <!-- 대출 만기 연체 alert-box delay expire -->
+          <div class="alert-box delay expire">
+            <div class="alert-cont">
+              <strong>대출 만기일이 지났어요!</strong>
+              <span>상환이 이뤄지지 않으면 공매 집행 단계로 넘어가요.</span>
+            </div>
+          </div>
+          <!--전체 상환 완료 alert-box done -->
+          <div class="alert-box done">
+            <div class="alert-cont">
+              <strong>전체 상환이 완료된 상품이에요!</strong>
+              <span>상환 내역에 대한 내용은 아래와 같아요.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  </div>
+
+
+
+
+
+  <!-- script -->
+  <script src="/resource/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+  <script src="/resource/js/jquery-ui.js" type="text/javascript"></script>
+  <script src="/resource/js/swiper.min.js" type="text/javascript"></script>
+
+
+  <script src="/resource/js/datepicker-full.js"></script>
+  <script src="/resource/js/datepicker-ko.js"></script>
+  <script src="/resource/js/ui.common.js" type="text/javascript"></script>
+
+
+</body>
+
+</html>
