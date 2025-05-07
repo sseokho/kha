@@ -1,21 +1,23 @@
 function select() {
-  const select = document.querySelector('.custom-select');
-  const selected = document.querySelector('.selected');
-  const options = document.querySelector('.options');
-
-  selected.addEventListener('click', () => {
-    const isOpen = options.style.display === 'block';
-    options.style.display = isOpen ? 'none' : 'block';
-    selected.classList.toggle('active', !isOpen);
+  document.querySelectorAll('.custom-select').forEach(select => {
+    const selected = select.querySelector('.selected');
+    const options = select.querySelector('.options');
+  
+    selected.addEventListener('click', () => {
+      const isOpen = options.style.display === 'block';
+      options.style.display = isOpen ? 'none' : 'block';
+      selected.classList.toggle('active', !isOpen);
+    });
+  
+    options.addEventListener('click', (e) => {
+      if (e.target.tagName === 'LI') {
+        selected.innerText = e.target.innerText;
+        options.style.display = 'none';
+        selected.classList.remove('active');
+      }
+    });
   });
-
-  options.addEventListener('click', (e) => {
-    if (e.target.tagName === 'LI') {
-      selected.innerText = e.target.innerText; // 선택한 텍스트로 변경
-      options.style.display = 'none'; // 옵션 목록 닫기
-      selected.classList.remove('active'); // active 클래스 제거
-    }
-  });
+  
 
 
 }
