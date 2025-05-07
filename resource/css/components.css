@@ -3175,6 +3175,17 @@ select option:checked {
   width: 12rem;
   height: 4.8rem;
 }
+.custom-select.sel-plain .selected {
+  border: none;
+}
+.custom-select.sel-footer .selected {
+  border: none;
+  background: #011632;
+  color: #fff;
+}
+.custom-select.sel-footer + .sel-footer {
+  margin-left: 1rem;
+}
 
 .custom-select .selected {
   width: 100%;
@@ -3473,4 +3484,4 @@ input[type=radio]:checked {
   display: inline-block;
 }
 
-/* //components */
+/* //components *//*# sourceMappingURL=components.css.map */

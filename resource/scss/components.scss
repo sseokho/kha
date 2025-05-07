@@ -3385,6 +3385,23 @@ select option:checked {
 .custom-select {
     width: 12rem;
     height: 4.8rem;
+    &.sel{
+        &-plain{
+            .selected{
+                border:none;
+            }
+        }
+        &-footer{
+            .selected{
+                border:none;
+                background:#011632;
+                color:#fff;
+            }
+            & + .sel-footer{
+                margin-left: 1rem;
+            }
+        }
+    }
 }
 
 .custom-select .selected {
